@@ -1,0 +1,56 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Frames}\label{sec:holonomic_and_non-holonomic_frames}
+
+A frame is generally considered as an ordered set of linearly independent vectors spanning some vector space. Given such general definition, one can image the multitude of different frames one could potentially define over a point $x$ of a manifold $X$. Or, the multitude of fields of frames one could potentially define over a neighborhood $U\subseteq X$ of $x$. Such fields are what E.~Cartan first described in generality in~\cite{weyl1938} as \textquote{moving frames} over $R$.
+
+\subsection{Holonomic}\label{ssec:holonomic}
+
+The most commonly defined frame is the so-called coordinate or holonomic frame. Sometimes also called \textquote{world} or \textquote{spacetime} frame for reasons that will become clear in a moment. At $x$, it is defined as a particular choice of ordered basis for $T_x X$ --- the tangent space of $X$ at $x$. Such choice consists of derivations\footnote{Derivations at a point $x\in X$ are linear maps $D_x:C^{\infty}\left(X\right)\rightarrow \mathbb{R}$ acting on smooth functions on $X$ and satisfying $D_x \left(f\circ g\right)=D_x f g(x) + f(x)D_x g$.} of the kind
+\begin{equation}
+  \label{eq:holonomic-basis}
+  \partial_\mu|_x \left[f\right] \equiv \frac{\partial}{\partial x^\mu} \left(f\circ\phi^{-1}\right)|_{\phi(x)}\;,
+\end{equation}
+acting on smooth functions $f: U \rightarrow \mathbb{R}$ on $U$. Here, $ \phi: U \rightarrow A \subseteq \mathbb{R}^n $ is a local chart giving an ordered set of $n$ Euclidean labels, $\phi(x)=\left\{x^0,\ldots,x^{n-1}\right\}$, to each point $x$ in $U$ --- $x^\mu$ represents each of such labels.
+
+We can  write down a holonomic frame at $x$ as the ordered set $\left\{\partial_0|_x, \ldots, \partial_{n-1}|_x\right\}$. When the context is sufficiently clear, we might refer to it simply by its elements $\partial_\mu|_x$ and \textit{vice-versa}. Moreover, a field of holonomic frames over $ U $ is a map uniquely assigning to each $ x \in U $ a frame $ \partial_\mu|_x $. Such field, henceforth denoted as $\partial_\mu \left(x\right)$, is what Cartan would call a tangent (or holonomic, in our language) moving frame.
+
+Another very commonly defined frame is the so-called holonomic co-frame. It is defined using functionals acting on $T_x X$ and spanning $T_x^{*} X$ --- the co-tangent space of $X$ at $x$. The natural choice is $dx^\mu|_x$, implicitly given by the relation $dx^\mu|_x \left(\partial_\nu|_x\right)=\tensor{\delta}{^\mu_\nu}$. Let the ordered basis $\left\{dx^0|_x,\ldots,dx^{n-1}|_x\right\}$ of $T^*_x X$ be one such co-frame at $x$, henceforth denoted by $dx^\mu|_x$. A field of holonomic co-frames over $U$ is denoted by $dx^\mu(x)$, and we call it a holonomic moving co-frame.
+
+Holonomic frames explicitly use the concept of a local chart in their definition. As a result, they --- and, consequentially, their co-frames --- have a unique behavior. Consider another chart, $ \phi': U \rightarrow A' \subseteq \mathbb{R}^n $, giving different Euclidean labels, $ \phi'(x) = \{ x^{0'}, \ldots, x^{ \left( n-1 \right)' } \} $, to the same region $ U $ in $ X $. The composition map $ \phi' \circ \phi^{-1}: A \rightarrow A' $, known as a transition function on $U$, represents for $x$ the change of labels $ x^\mu \mapsto x^{ \mu' } $. If such change happens to be bijective and smooth $ \forall \; x \in U$, then holonomic frames --- and their co-frames --- all over this region suffer the action of an $ n \times n $ invertible matrix. Namely, for moving frames,
+\begin{equation}
+  \label{eq:holonomic-frame-transf-rule}
+  \partial_{\nu'}(x) = \tensor{J}{^\mu_{\nu'}}\left(x\right) \partial_\mu(x) \quad ; \quad \tensor{J}{^\mu_{\nu'}}\left(x\right) \equiv \partial_{\nu'} x^\mu \;,
+\end{equation}
+and, for their co-frames,
+\begin{equation}
+  \label{eq:holonomic-coframe-transf-rule}
+  dx^{\nu'}(x) = \tensor{J}{^{\nu'}_\mu}\left(x\right)dx^{\mu}(x) \quad ; \quad \tensor{J}{^{\nu'}_\mu}\left(x\right) \equiv \partial_\mu x^{\nu'} \;,
+\end{equation}
+where $\tensor{J}{^{\nu'}_\mu}\left(x\right)$ is the Jacobian matrix of $\phi'\circ {\phi}^{-1}|_{\phi(x)}$ and $\tensor{J}{^\mu_{\nu'}}(x)$ is its inverse. In other words, holonomic frames and their co-frames are sensible to changes of local charts in $X$. If this change occurs in an invertible and, at least $C^1$ manner, then the corresponding change in each $T_x R$ can be seen as an action of the general linear group $GL\left(n,\mathbb{R}\right)$. In Physics, this intimate relationship between holonomic frames and the base manifold --- usually spacetime --- is the reason why they are also called \textquote{world} or \textquote{spacetime} frames.
+
+\subsection{Non-holonomic}\label{ssec:non-holonomic}
+
+In contrast, generic frames do not rely on $\phi$ for their definition. Unlike~\eqref{eq:holonomic-basis}, most frames are not sensible to changes of charts in $X$. This majority is referred to as non-holonomic, and they are naturally present in physical theories with or without gravity. In the study of a quantized Dirac field over a fixed spacetime 4-manifold, a relevant non-holonomic moving frame is defined by a map giving to each event an ordered orthonormal basis in $\mathbb{C}^4$. Physically, each of these frames can be interpreted as a Stern-Gerlach experimental apparatus, able to measure the spin orientation of the fundamental excitations of the Dirac field --- particle and anti-particle --- at a specific point in space and time.
+
+In the case of pure relativistic theories of gravity, which is the focus of the present work, non-holonomic moving frames are brought into light by the geometric equivalence principle~\cite{sardanashvily1983}. Consider the moving frame $\tau_a(x)$ on $ U \subseteq X $ that uniquely associates to each $ x \in R $ the ordered basis $ \tau_a|_x $ spanning the vector space $ V_x $. We want $ V_x $ to carry a linear action of $ SO \left( 1, n-1 \right) $ --- the isometry group of the $n$-dimensional Minkowski space, $ M $. In other words, $ \tau_a(x) $ over $U$ transforms according to
+\begin{equation}
+  \label{eq:lorentz_frames_transf}
+  {\tau}_{a'}(x) = \tensor{\Lambda}{^b_{a'}}(x)\tau_b(x) \;,
+\end{equation}
+where $\tensor{\Lambda}{^b_{a'}}(x)$ is a matrix representation of $SO(1,n-1)$. In principle, equation~\eqref{eq:lorentz_frames_transf} is not the result of any local change of chart on $X$. Thus, it is non-holonomic in nature. It, however, can be interpreted as holonomic in $M$. If we forget its $x\in X$ dependence, we have the right to interpret~\eqref{eq:lorentz_frames_transf} as the result of a change of global charts in $M$ that preserves the globally defined Minkowski metric $\eta$ there. And there, $\tau_a$ as well as $\tau_{a'}$ are global (and constant) holonomic moving frames, orthogonal with respect to (w.r.t.) $\eta$. This is exactly the kind of moving frames in which Special Relativity (SR) is formulated.
+
+Under this point of view, the equivalence principle is fulfilled in a generic curved geometry if it is possible to define a $\tau_a(x)$ on every possible $ U \subseteq X $. This effectively covers all of $X$ with frames in which Lorentz invariants can be defined. Physically, they carry exactly the same meaning as in SR\@: a force-free clock and $n-1$ linearly independent rods at each point in spacetime.
+
+One can go ahead and quickly define the co-frame $\tau^a|_x$ of $\tau_a|_x$ as the functionals acting on $V_x$ and spanning $V_x^*$ such that $\tau^a|_x \left(\tau_b|_x\right)=\tensor{\delta}{^a_b}$. It transforms non-holonomically according to
+\begin{equation}
+  \label{eq:lorentz_coframes_transf}
+  {\tau}^{a'}(x) = \tensor{\Lambda}{^{a'}_b}(x)\tau^b(x) \;,
+\end{equation}
+where $\tensor{\Lambda}{^b_{a'}}(x)$ is the inverse matrix of $\tensor{\Lambda}{^{a'}_b}(x)$.
+
+We finally conclude this section with two remarks: (i) the discussion above is very familiar. Equations~\eqref{eq:holonomic-frame-transf-rule} and~\eqref{eq:holonomic-coframe-transf-rule} are nothing but the transformation rules of covariant and contravariant coordinate vectors, respectively, exhaustively discussed throughout the literature. Equations~\eqref{eq:lorentz_frames_transf} and~\eqref{eq:lorentz_coframes_transf} should also look ordinary --- very similar to the transformation laws that the 1-form \textit{vielbein} $e^a(x)\equiv \tensor{e}{^a_\mu}\left(x\right)dx^\mu$ and its inverse field obey. However, the relation between $\tau^a(x)$ and $e^a(x)$ is a bit more subtle than just an equality, which leads us to the second remark; (ii) these quantities and relations belong to vector bundle structures over $X$~\cite{trautman1970}. We enter in more details about this in Section~\ref{sec:geometric_picture}. For the moment, we blindly use the fact that the non-holonomic group $SO(1,n-1)$ can be enlarged to a non-holonomic $GL(n,\mathbb{R})$ without compromising any aspect of the discussion above --- including the validity of the equivalence principle. This allows to extend the discussion in Section~\ref{sec:gravities} to very general theories of gravity --- not just GR or its torsional extensions. To emphasize this change, capital Latin letters represents non-holonomic $GL(n,\mathbb{R})$ indexes while Greek letters stay exclusively to holonomic $GL(n,\mathbb{R})$ ones.
+
+\end{document}

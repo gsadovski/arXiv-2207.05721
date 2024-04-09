@@ -1,0 +1,142 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Gravity theories}\label{sec:gravities}
+
+\subsection{Cartan's philosophy}\label{ssec:cartan's_philosophy}
+
+In holonomic moving frames, a fundamental ingredient of the Einstein-Palatini approach is the understanding that a metric tensor field $g(x)$ and an affine connection $\nabla$ are \textit{\`a priori} two logically distinct concepts over a spacetime region $ U \subseteq X $. Physically, $g(x)$ introduces how a set $ \partial_\mu (x) $ of observers on $ U $, can perform \textquote{dot product} measurements on pairs of vector fields. Indeed, $g\left[\partial_\mu,\partial_\nu\right] \left(x\right)\equiv g_{\mu\nu} \left(x\right)$ is a smooth function on $U$ associating a set of $n\left(n+1\right)/2$ real numbers to each $ x \in U $. Such numbers are interpreted as \textquote{sizes} ($\mu=\nu$) and \textquote{angles} ($\mu\neq \nu$) between $\partial_\mu$ and $\partial_\nu$\footnote{From now on, whenever the context is sufficiently clear, the $x$ dependence of fields will be omitted.}. Meanwhile, $\nabla$ introduces a recipe on how vector fields can be differentiated along others. Indeed, $ dx^\alpha \left( \nabla \left[ \partial_\mu, \partial_\beta \right] \right) \equiv \tensor{\Gamma}{^\alpha_{\beta\mu}} $ is another smooth function on $ U $ associating a set of $n^3$ real numbers for each $ x \in U $, in general. Such numbers are interpreted as the infinitesimal variation of $ \partial_\beta $ along $\partial_\mu$ as measured by $dx^\alpha$ at each $x$.
+
+It is true, however, that there is a canonical way to collapse affine concepts into metrical ones. For instance, to impose that the only way $\partial_\beta$ can vary along $\partial_\mu$ is by an infinitesimal \textquote{rotation}, \textit{i.e.}, a specific first-order change in $g_{\beta\mu}$. Such change is what is known as Christoffel symbols. A detailed analysis of the irreducible decomposition of $\tensor{\Gamma}{^\alpha_{\beta\mu}}$ reveals that this is equivalent to forbid $\partial_\beta$ to pick up any infinitesimal shear, dilatation and/or displacement variations along $\partial_\mu$. Or, equivalently, that $\tensor{\Gamma}{^\alpha_{\beta\mu}}$ satisfies the following constraints:
+\begin{subequations}\label{eq:vanishing_torsion_nonmetricity}
+  \begin{align}
+    \tensor{T}{^\alpha_{\beta\mu}} & \equiv \tensor{\Gamma}{^\alpha_{\beta\mu}}-\tensor{\Gamma}{^\alpha_{\mu\beta}} = 0 \label{eq:vanishing_torsion} \;,                                                       \\
+    \tensor{Q}{_{\alpha\beta\mu}}  & \equiv \partial_\alpha g_{\beta\mu} -\tensor{\Gamma}{^\nu_{\beta\alpha}}g_{\nu\mu}-\tensor{\Gamma}{^\nu_{\mu\alpha}}g_{\beta\nu} = 0 \label{eq:vanishing_nonmetricity}\;,
+  \end{align}
+\end{subequations}
+where $\tensor{T}{^\alpha_{\beta\mu}}$ and $Q_{\alpha\beta\mu}$ are the so-called torsion and non-metricity tensor fields, respectively. As one can see, this is indeed a very particular and constrained geometry, first formulated by B. Riemann in 1854\footnote{This work was never published by Riemann himself. He first laid out the foundational aspects of what is now called a Riemannian $n$-manifold in a lecture, \textit{On the hypothesis that lie at the foundation of geometry}, at G\"{o}ttingen University, as part of the qualification process for him to become a \textit{Privatdozent} (lecturer).}, and fully embodied in GR 60 years later\@.
+
+On the other hand, other geometries such as Weitzenb\"{o}ck ($R=0, \; T\neq 0, \; Q=0$), Weyl ($R=0, \; T=0, \; Q\neq 0$), Riemann-Cartan  ($R\neq 0, T\neq 0$, $Q=0$) or metric-affine ($R\neq 0, T\neq 0$, $Q\neq 0$) are as compatible with current observational data as the Riemannian hypothesis~\cite{hehl1974,lammerzahl1997,fay2007,capozziello2011,nojiri2011,clifton2012,obukhov2014,broderick2014,berti2015,yagi2016,baker2017,mizuno2018,sunny2019,eht2019,jimenez2019,iosifidis2020,bahamonde2021,cantata2021,lobo2021,ferreira2022,golovnev2022}.\ \textit{Em prol} of generality, and advocating Cartan's philosophy, we consider $g_{\mu\nu}$ and $\tensor{\Gamma}{^\alpha_{\beta\mu}}$ as completely independent fields, each carrying part of the classical degrees of freedom of gravity. Unless, dynamically stated otherwise via the field equations.
+
+Following the above reasoning, the curvature tensor field
+\begin{equation}
+  \label{eq:curvaturetensor}
+  \tensor{R}{^\alpha_{\beta\mu\nu}} = \partial_\mu\tensor{\Gamma}{^\alpha_{\beta\nu}}-\partial_\nu\tensor{\Gamma}{^\alpha_{\beta\mu}}+\tensor{\Gamma}{^\alpha_{\rho\mu}}\tensor{\Gamma}{^\rho_{\beta\nu}}-\tensor{\Gamma}{^\alpha_{\rho\nu}}\tensor{\Gamma}{^\rho_{\beta\mu}} \;
+\end{equation}
+should be considered as a function of $\tensor{\Gamma}{^\alpha_{\beta\mu}}$ and its derivatives alone --- not of $g_{\mu\nu}$ and its derivatives. This tensor differs from the Riemann curvature since, again, we are not making any assumption on how $\tensor{\Gamma}{^\alpha_{\beta\mu}}$ differs from Christoffel symbols.
+
+\subsection{EC and ECSK theory}\label{ssec:ec_theory}
+
+The dynamics of $n$-dimensional EC theory is defined by the $n$-dimensional Einstein-Hilbert-Palatini (EHP) action,
+\begin{equation}\label{eq:holonomic-EP-action}
+  S_{\text{EHP}}\left[g_{\mu\nu},\;\tensor{\Gamma}{^\alpha_{\beta\mu}}\right]=\int_{X} d^n x \sqrt{-g}\tensor{R}{^\alpha_{\mu\alpha\nu}}g^{\mu\nu}\;.
+\end{equation}
+where $g_{\mu\nu}$ corresponds to a Lorentzian metric, while $g$ is its determinant and $g^{\mu\nu}$ is its inverse. The field equations obtained from the functional variation w.r.t. $g_{\mu\nu}$ and $\tensor{\Gamma}{^\alpha_{\beta\mu}}$ are, respectively,
+\begin{subequations}\label{eq:holonomic-field-eqs}
+  \begin{align}
+    -\sqrt{-g}G^{\mu\nu}                                                                                                                                                                                            & = 0 \;, \label{eq:holonomic-einstein-like-field-eqs} \\
+    -\sqrt{-g}\left[\tensor{T}{^\mu_\alpha^\beta}-\tensor{Q}{_\alpha^{\beta\mu}} + \frac{1}{2} \left(g^{\beta\mu}\tensor{Q}{_{\alpha\nu}^\nu}+\tensor{\delta}{_\alpha^\mu}\tensor{Q}{^\beta_\nu^\nu}\right) \right] & = 0\;, \label{eq:holonomic-cartan-like-field-eqs}
+  \end{align}
+\end{subequations}
+where $G_{\mu\nu} \equiv \tensor{R}{^\alpha_{\mu\alpha\nu}} - \frac{1}{2} \tensor{R}{^\alpha_{\beta\alpha\lambda}}g^{\beta\lambda}g_{\mu\nu}$ is the post-Riemannian Einstein tensor;  asymmetric in $\mu\nu$.
+
+The $n$-dimensional ECSK theory, which is formulated in non-holonomic frames, has its dynamics defined by the so-called \textit{Vielbein}-Einstein-Palatini (VEP) action,
+\begin{equation}
+  \label{eq:vep-action}
+  S_{\text{VEP}} \left[\tensor{e}{^A_\mu}, \tensor{A}{^A_{B\mu}}\right] = \int_X d^n x e\tensor{F}{^A_{B\mu\nu}}\tensor{e}{^\mu_A}\tensor{e}{^{B\nu}}  \;,
+\end{equation}
+where $\tensor{e}{^A_\mu}$ is the \textit{vielbein} field, $e$ is its determinant and $\tensor{e}{^\mu_A}$ is its inverse satisfying
+\begin{subequations}
+  \begin{align}
+    \tensor{e}{^A_\mu}\tensor{e}{^\mu_B} & = \tensor{\delta}{^A_B}\;, \label{eq:inversepullbackvielbein} \\
+    \tensor{e}{^A_\mu}\tensor{e}{^\nu_A} & = \tensor{\delta}{^\nu_\mu} \label{eq:inversevielbein}\;.
+  \end{align}
+\end{subequations}
+Under a non-holonomic $GL\left(n,\mathbb{R}\right)$ action, they transform as
+\begin{subequations}
+  \begin{align}
+    \label{eq:active_transf_vielbein}
+    \tensor{e}{^{A'}_\mu} & = \tensor{\Lambda}{^{A'}_{B}} \tensor{e}{^B_\mu} \;, \\
+    \tensor{e}{^\mu_{A'}} & = \tensor{\Lambda}{^{B}_{A'}} \tensor{e}{^\mu_B} \;,
+  \end{align}
+\end{subequations}
+while under a holonomic one, they do as
+\begin{subequations}
+  \begin{align}
+    \label{eq:passive_transf_vielbein}
+    \tensor{e}{^A_{\nu'}} & = \tensor{J}{^\mu_{\nu'}} \tensor{e}{^A_\mu} \;, \nonumber \\
+    \tensor{e}{^{\nu'}_A} & = \tensor{J}{^{\nu'}_{\mu}} \tensor{e}{^\mu_A} \;.
+  \end{align}
+\end{subequations}
+Furthermore, $\tensor{A}{^A_{B\mu}}$ is a $GL\left(n,\mathbb{R}\right)$ connection and its curvature,
+\begin{equation}
+  \label{eq:nonholcurvature}
+  \tensor{F}{^A_{B\mu\nu}}=\partial_\mu\tensor{A}{^A_{B\nu}}-\partial_\nu\tensor{A}{^A_{B\mu}}+\tensor{A}{^A_{C\mu}}\tensor{A}{^C_{B\nu}}-\tensor{A}{^A_{C\nu}}\tensor{A}{^C_{B\mu}} \;,
+\end{equation}
+is, unmistakably, a function of connection $\tensor{A}{^A_{B\mu}}$ and its derivatives alone.
+
+The reader might notice that the above fields are being called non-holonomic when they clearly also have holonomic indexes. As we clarify in Section~\ref{sec:geometric_picture}, these fields are local projections on $X$ of truly non-holonomic quantities living on internal bundles. Due to this mixtured nature, $g_{\mu\nu}$ and its inverse are still present in the non-holonomic framework --- albeit not as a dynamical field. Additionally, an extra metric, $g_{AB}$, and its inverse $g^{AB}$, are also present in order to \textquote{rise} and \textquote{lower} non-holonomic indexes\footnote{The relation between these two metrics (equation~\eqref{eq:metrics}) is addressed in Section~\ref{sec:geometric_picture}.}.
+
+The field equations obtained from the functional variation w.r.t. $\tensor{e}{^A_\mu}$ and $\tensor{A}{^A_{B\mu}}$ are, respectively,
+\begin{subequations}\label{eq:nonholonomic-field-eqs}
+  \begin{align}
+    e\delta^{\mu\nu\lambda}_{\alpha\beta\gamma}\tensor{e}{^\alpha_A}\tensor{e}{^\beta_B}\tensor{e}{^\gamma_C}\tensor{F}{^{BC}_{\nu\lambda}}                                                                                                          & = 0 \;, \label{eq:nonholonomic-einstein-like-field-eqs} \\
+    e \left(\delta^{\mu\nu\lambda}_{\alpha\beta\gamma}\tensor{e}{^\alpha_A}\tensor{e}{^{B\beta}}\tensor{e}{^\gamma_C}\tensor{T}{^C_{\nu\lambda}}-2\delta^{\mu\nu}_{\alpha\beta}\tensor{e}{^\alpha_A}\tensor{e}{^\beta_C}\tensor{Q}{_\nu^{BC}}\right) & = 0 \;, \label{eq:nonholonomic-cartan-like-field-eqs}
+  \end{align}
+\end{subequations}
+where some useful definitions were used\footnote{\setlength{\abovedisplayskip}{-6pt}
+  \begin{align*}
+    \delta^{\mu_1 \cdots \mu_p}_{\nu_1\cdots \nu_p} & \equiv \frac{1}{\left(n-p\right)!}\epsilon^{\mu_1 \cdots \mu_p \lambda_{p+1}\cdots\lambda_{n}}\epsilon_{\nu_1\cdots\nu_p\lambda_{p+1}\cdots\lambda_n}\;,     \\
+    \tensor{T}{^A_{\mu\nu}}                         & \equiv \partial_\mu \tensor{e}{^A_\nu}- \partial_\nu \tensor{e}{^A_\mu} + \tensor{A}{^A_{B\mu}}\tensor{e}{^B_\nu}-\tensor{A}{^A_{B\nu}}\tensor{e}{^B_\mu}\;, \\
+    \tensor{Q}{_\mu^{AB}}                           & \equiv \tensor{A}{^{AB}_\mu}+\tensor{A}{^{BA}_\mu} \;.
+  \end{align*}}. In particular, $\delta^{\mu_1\cdots \mu_p}_{\nu_1\cdots\nu_p}$ is the generalized Kronecker delta, $\epsilon_{\mu_1\cdots \mu_n}$ is the permutation symbol, $\tensor{T}{^A_{\mu\nu}}$ is the non-holonomic torsion and $\tensor{Q}{_\mu^{AB}}$ is the non-holonomic non-metricity associated to the connection $\tensor{A}{^A_{B\mu}}$. Notice how in non-holonomic frames, it is the vanishing of non-metricity --- rather than torsion --- that is related to symmetries of the connection. Whenever $\tensor{Q}{_\mu^{AB}}=0$, then $\tensor{A}{^{AB}_\mu}=-\tensor{A}{^{BA}_\mu}$. From the symmetry group perspective, this is equivalent to a contraction of $GL(n,\mathbb{R})$ down to one of its (pseudo-)orthogonal subgroups. In our case, $SO\left(1,n-1\right)$. This is, of course, the reason why we blindly did the opposite, in the end of Section~\ref{sec:holonomic_and_non-holonomic_frames}. We expand on that in Section~\ref{sec:geometric_picture}.
+
+\subsection{EC \textit{vs.} ECSK \textit{vs.} GR}\label{ssec:inequivalence}
+
+At first glance, the set of field equations~\eqref{eq:holonomic-field-eqs} seems to deviate from $n$-dimensional Einstein equations. Nonetheless, their physical solutions are still exclusively Einstein $n$-manifolds. This is due to the fact that the EHP action~\eqref{eq:holonomic-EP-action} is explicitly invariant under local projective transformations
+\begin{subequations}\label{eq:r-symmetry}
+  \begin{align}
+    g_{\mu\nu}                          & \rightarrow g_{\mu\nu} \;,                                                              \\
+    \tensor{\Gamma}{^\alpha_{\beta\mu}} & \rightarrow \tensor{\Gamma}{^\alpha_{\beta\mu}}+\tensor{\delta}{^\alpha_\beta}U_\mu \;.
+  \end{align}
+\end{subequations}
+This is the so-called $R^d$-symmetry, where $U_\mu$ is an arbitrary vector field~\cite{dadhich2012}. One can show that to choose vanishing $\tensor{Q}{_{\alpha\beta\mu}}$ (and, consequentially, $\tensor{T}{^\alpha_{\beta\mu}}$, via~\eqref{eq:holonomic-cartan-like-field-eqs}) or $\tensor{T}{^\alpha_{\beta\mu}}$ (and, consequentially, $\tensor{Q}{_{\alpha\beta\mu}}$, again, via~\eqref{eq:holonomic-cartan-like-field-eqs}) equates to setting $U_\mu=0$. In other words, these choices are nothing but gauge choices for this projective symmetry. $\tensor{ T }{ ^{ \alpha } _{ \beta \mu } }$ and $ Q_{ \alpha \beta \mu } $ are pure $R^d$-gauge quantities and the traditional EH action --- the action of GR --- is just an $R^d$-gauge fixed version of~\eqref{eq:holonomic-EP-action}. This is true as long as we remain decoupled from matter sources carrying non-vanishing hypermomentum currents. If, for instance, spinorial matter is present, $ \tensor{ T }{ ^{ \alpha } _{ \beta \mu } } $ couples to the spin density tensor and assumes an $R^d$-gauge invariant character. This results in a space of solutions containing Riemann-Cartan $n$-manifolds, and~\eqref{eq:holonomic-EP-action} is an $R^d$-gauge unfixed version of EC theory, not GR\@.
+
+The VEP action~\eqref{eq:vep-action} also enjoys invariance under local projective transformations of the connection, namely,
+\begin{subequations}\label{eq:nonholonomic-projective-transformation}
+  \begin{align}
+    \tensor{e}{^A_\mu}    & \rightarrow \tensor{e}{^A_\mu} \;, \label{eq:projective-transf-vielbein}                                 \\
+    \tensor{A}{^A_{B\mu}} & \rightarrow \tensor{A}{^A_{B\mu}}+\tensor{\delta}{^A_B}V_\mu \;, \label{eq:projective-transf-connection}
+  \end{align}
+\end{subequations}
+where $V_\mu$ is an arbitrary vector field. The previous scenario then repeats itself in a non-holonomic fashion. $\tensor{Q}{_\mu^{AB}}$ is a pure $R^d$-gauge quantity proportional to $V_\mu$~\cite{dadhich2012}. In the $R^d$-gauge choice $V_\mu=0$, $\tensor{Q}{_\mu^{AB}}$ and, consequentially, $\tensor{T}{^A_{\mu\nu}}$, via~\eqref{eq:nonholonomic-cartan-like-field-eqs}, vanishes. Again, physical solutions are exclusively Einstein $n$-manifolds as long as there are no couplings to matter sources carrying hypermomentum currents. Otherwise, the solutions are Riemann-Cartan $n$-manifolds and~\eqref{eq:vep-action} is an $ R^{ d } $-gauge unfixed version of ECSK theory.
+
+We just argued that EC and ECSK theory, in non-degenerate spacetime regions and in absence of hypermomentum currents, are both equivalent to GR\@. This was due to the presence of a projective gauge symmetry. Therefore, it is reasonable to expect EC and ECSK to be equivalent to each other \textit{modulus} some gauge artifacts. The non-holonomic to holonomic equivalence is achieved, at the level of field equations and action functionals, by the set of field transformations
+\begin{subequations}\label{eq:field-transformation}
+  \begin{align}
+    g_{\mu\nu}                        & = \tensor{e}{^A_\mu}\tensor{e}{^B_\nu}g_{AB} \;, \label{eq:metrics}                                                                          \\
+    \tensor{\Gamma}{^\alpha_{\mu\nu}} & = \tensor{e}{^\alpha_A}\tensor{A}{^A_{B\mu}}\tensor{e}{^B_\nu}-\tensor{e}{^\alpha_A}\partial_\mu\tensor{e}{^A_\nu}\;. \label{eq:connections}
+  \end{align}
+\end{subequations}
+Three points are important to be emphasized about them: (i) the Jacobian matrix of such transformations is clearly not trivial; (ii) it is not even a square matrix; (iii) these transformations assume $\tensor{e}{^\alpha_A}$ exists.
+
+Point (i) is of major importance in the study of this (in)equivalence within a path integral quantization of both theories. It indicates the appearance of non-trivial insertions if one transforms the functional measure from $\mathcal{D}e\mathcal{D}A$ to $\mathcal{D}g\mathcal{D}\Gamma$. Point (ii) reflects the one-to-many nature of the \textquote{inverse} transformations. While a non-holonomic description has a unique holonomic counterpart, a holonomic description has infinitely many non-holonomic versions. All of these versions are $GL\left(n,\mathbb{R}\right)$ gauge transformations of each other --- thus, define only one single physical theory. Finally, point (iii) can be relaxed at the expense of a fixed space topology~\cite{geroch1967,tipler1977,horowitz1991,borde1994,borde1999,heveling2022}, and the equivalence between EC and ECSK.
+
+The above facts are well established and can be summarized in the following commutative diagram:
+
+\begin{equation}\label{dia:equivalence}
+  \begin{tikzcd}[row sep=huge, column sep=huge]
+    \text{\eqref{eq:holonomic-EP-action}} \arrow[d, Rightarrow, "\delta S = 0" description]
+    \arrow[r, Leftarrow, "\eqref{eq:field-transformation}"]
+    &
+    \text{\eqref{eq:vep-action}} \arrow[d, Rightarrow, "\delta S =0" description]
+    \\
+    \text{\eqref{eq:holonomic-field-eqs}}
+    \arrow[r, Leftarrow, "\eqref{eq:field-transformation}"]
+    &
+    \text{\eqref{eq:nonholonomic-field-eqs}}
+  \end{tikzcd} \;. \tag{Diagram 1}
+\end{equation}
+It is not known in the literature how general this equivalence is. In particular, if it is valid for general metric-affine dynamics --- which lacks projective symmetry. As mentioned in Section~\ref{sec:introduction}, we do expect it to break quantum mechanically. And, classically, we do know~\ref{dia:equivalence} breaks in degenerate spacetime regions. The present work provides a more complete picture of this scenario. In Section~\ref{sec:on-shell_equivalence}, we extend~\ref{dia:equivalence} to very general metric-affine dynamics at any spacetime dimensions. The results make very clear that an invertible \textit{vielbein} is a general requirement for it to hold. Additionally, in Section~\ref{sec:geometric_picture}, we give its geometrical formulation, and clarify its underlying physical meaning.
+\end{document}

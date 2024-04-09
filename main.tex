@@ -1,0 +1,42 @@
+%%%%%%%%%%%%%%%%%
+% DOCUMENTCLASS %
+%%%%%%%%%%%%%%%%%
+\documentclass[
+  fontsize=12pt,
+  fleqn,
+  %draft
+  final
+]{scrartcl}
+
+%%%%%%%%%%%%%%%%
+% CUSTOM STYLE %
+%%%%%%%%%%%%%%%%
+\RequirePackage{metadata/manuscript}
+
+%%%%%%%%%%%%
+% DOCUMENT %
+%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%
+% METADATA %
+%%%%%%%%%%%%
+\subfile{metadata/titlepage.tex}
+
+%%%%%%%%%%%%
+% SECTIONS %
+%%%%%%%%%%%%
+\subfile{content/sections/introduction.tex}
+\subfile{content/sections/frames.tex}
+\subfile{content/sections/gravities.tex}
+\subfile{content/sections/inequivalence.tex}
+\subfile{content/sections/bundles.tex}
+\subfile{content/sections/conclusion.tex}
+\subfile{content/sections/acknowledgments.tex}
+
+%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY %
+%%%%%%%%%%%%%%%%
+\printbibliography{}
+
+\end{document}

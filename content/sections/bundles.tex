@@ -1,0 +1,280 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{The geometrical framework}\label{sec:geometric_picture}
+
+In other to explain the functional form~\eqref{eq:field-transformation}, and clarify its physical meaning, we need to investigate the fiber bundle structures over $X$ --- implicitly used in both the holonomic and non-holonomic frame descriptions of gravity. We formalize holonomic quantities in terms of natural bundles, and non-holonomic ones in terms of soldered bundles.
+
+\subsection{Natural bundles}\label{ssec:natural_bundles}
+
+Consider the set $TX \equiv \left\{ \sqcup_x T_x X \; \forall \; x\in X \right\}$, and the map $\pi_{TX}: TX \rightarrow X$. $TX$ is called the total space\footnote{Sometimes we might use the total space to refer to the whole bundle structure.}, and it inherits a $2n$-manifold structure from $X$; $\pi_{TX}$ is called the projection map, and it is smooth and surjective. The typical fiber, $ { \pi_{TX} }^{-1} \left( x \right) $, is isomorphic to $ T_x X $ and, as such, carries a $ GL \left( n, \mathbb{R} \right)$ representation reminiscent of smooth changes of coordinates --- mentioned in Section~\ref{sec:holonomic_and_non-holonomic_frames}. This later statement is the archetypical examples of a categorical lift. The structure just described is known as the tangent bundle of $X$.
+
+Morphisms in the category of smooth manifolds induce morphisms in the category of smooth vector bundles via a functor $ \mathcal{F} $~\cite{tu2011}. This can be neatly captured by the commutative diagram
+\begin{equation}
+  \label{dia:categorical_lift}
+  \begin{tikzcd}
+    \mathcal{F}X
+    \arrow[r, "\mathcal{F}f"]
+    \arrow[d, "\pi_{\mathcal{F}X}" left]
+    &
+    \mathcal{F}X'
+    \arrow[d, "\pi_{\mathcal{F}X'}" ]
+    \\
+    X
+    \arrow[r, "f"]
+    &
+    X'
+  \end{tikzcd} \tag{Diagram 2} \;.
+\end{equation}
+The bundle morphism $ \mathcal{F} f $ is said to be the functorial lift of the morphism $ f $. Bundles above $ X $ constructed in this functorial way are said to be natural~\cite{kolar2000}. The tangent bundle is the natural bundle obtained by considering $ X' = X$, $ f $ as a local automorphism\footnote{Defined as map from $ X $ to $ X $ which is necessarily a diffeomorphism only on a chart, \textit{i.e.}, $ f $ is not necessary a diffeomorphism but $ f|_U: U \rightarrow f(U) $ is.} and $\mathcal{F}$ as the tangent (pushforward) map $T$. On $U$, this translates to transition functions $ x^{\nu'} \left( x^\mu \right) $ lifting to automorphisms $\tensor{J}{^\mu_{\nu'}}(x)$ on $T_x U$. Since the group of automorphisms of the typical fiber is isomorphic to the structure group of the bundle itself, the tangent bundle is constrained to have $ GL \left( n, \mathbb{R} \right) $. In other words, $ lAut \left( X \right) $ functorially lifts to $ TX $ as $ GL\left( n,\mathbb{R} \right) $. Other natural bundles on $ X $ can be defined by only changing the typical fiber to another representation space of $ GL \left( n, \mathbb{R} \right) $. The co-tangent bundle $T^* X$ is the one with typical fiber isomorphic to ${T}^*_x X$\footnote{Categorically, $\mathcal{F}$ is the co-functor $T^*$ of $T$.} and, more generally, the $(r,s)$-tensor bundle $\mathcal{T}^s_r X$ is the one with typical fiber isomorphic to $T_x X^{\otimes^r}\otimes T^*_x X^{\otimes^s}$\footnote{Categorically, $\mathcal{F}$ is the tensor products of functors $\mathcal{T}^s_r\equiv T^{ \otimes^r } \otimes {T^*}^{ \otimes^s }$.}.
+
+A right inverse for $\pi_{TX}$ is a tangent vector field on $X$. It is called a section of this bundle, and defined as a map $\sigma_{TX}: U \subseteq X \rightarrow TX$ such that $\pi_{TX} \circ \sigma_{TX} = \mathds{1}_U$. There might be topological obstructions for the set equality to hold for a nowhere vanishing $\sigma_{TX}$. Most nowhere vanishing sections are local ($U\subset X$). Global ones ($U=X$) are only guaranteed to exist in trivial bundles --- $TX$ needs to be globally diffeomorphic to $X \times \mathbb{R}^n$. The canonical example is given by the hairy ball theorem. No nowhere vanishing tangent vector field globally exists on the $S^2$. $TS^2$ is not diffeomorphic to $S^{2} \times \mathbb{R}^{2}$. The opposite is true for $S^3$. $TS^{3} \cong S^{3} \times \mathbb{R}^{3}$, and it is one reason why it can accept an $SU(2)$ Lie group structure.
+
+The above results are closely connected to the value of their Euler characteristic: $\chi \left( S^{2} \right) = 2$ and $ \chi \left( S^{3} \right) = 0$. In such topologies, $\chi \left( X \right)$ acts as the obstruction for the existence of any nowhere vanishing global section in $TX$. It so happens that $\chi \left( S^n \right)=0$, if $n$ is odd; and $\chi \left( S^n \right)=2$, if $n$ is even. In the former case, $n \in \left\{ 1, 3, 7 \right\}$ are especial since they are the only ones with $TS^n \cong S^n \times \mathbb{R}^n$.
+
+The space of all sections in $TX$ is denoted as $\Gamma \left( TX \right)$. One can infer now that the metric field $ g(x) $ is an element in the symmetric subspace $ \Gamma ( \text{\raisebox{\depth}{\scalebox{1}[-1]{$\Lambda$}}}^2 X ) \subset \Gamma ( \mathcal{T}^2_0 X )$ --- and, depending on the topology of $X$, $ \chi \left( X \right)$ might act as an obstruction for it to be a nowhere vanishing globally defined field.
+
+A very important natural bundle is the frame bundle $\pi: FX \rightarrow X$ of $TX$. The structure group and base space are the same as before, but the total space $FX$ is defined as the set of all tangent frames on $X$. In particular, the typical fiber $F_x X$ is diffeomorphic to $GL\left(n, \mathbb{R}\right)$ itself. This makes $FX$ $n\left(n+1\right)$-dimensional. Furthermore, $F_x X$ carries a smooth and free right action of $GL\left(n, \mathbb{R}\right)$. These facts make $ FX $ into a $GL\left(n, \mathbb{R}\right)$ principal bundle over $X$. This is the space where holonomic frames live in. In particular, $\partial_\mu|_x$ is an element of $F_x X$ and the holonomic moving frame $\partial_\mu \left(x\right)$ is an element of $\Gamma\left(FX\right)$. Finally, transformation laws~\eqref{eq:holonomic-frame-transf-rule} and $\eqref{eq:holonomic-coframe-transf-rule}$ are just a reflex of the naturalness of this bundle, \textit{i.e.}, that $f$ canonically lifts to it and to the co-frame bundle $F^* X$, respectively.
+
+$FX$ has such importance because all other natural vector bundles over $X$ can be derived from it via the associated vector bundle construction. Let $\rho: GL\left(n, \mathbb{R}\right) \rightarrow GL\left(\mathcal{V}\right)$ be a representation of $GL\left(n, \mathbb{R}\right)$ on a vector space $\mathcal{V}$. One can show that the product space $FX \times \mathcal{V}$, \textit{modulus} the equivalence relation $ \left(u, v\right) \sim \left(u g, \rho\left(g^{-1}\right)v\right)$, where $ u \in FX $, $v \in\mathcal{V}$, and $ g\in GL\left(n, \mathbb{R}\right)$, does form a vector bundle over $X$. This bundle, $\pi_{ A \left( \mathcal{V} \right) }: A\left(\mathcal{V}\right)\rightarrow X$, where $A\left(\mathcal{V}\right)\equiv FX \times \mathcal{V}/\sim$, is said to be a vector bundle associated to $FX$. Clearly, there are as many associated vector bundles to $FX$ as there are representation spaces of $GL\left(n, \mathbb{R}\right)$. In particular, $ A \left( T_x X\right ) $ is an associated vector bundle trivially isomorphic to $TX$, $ A \left( {T}^*_x X \right) $ is to $T^*X$, and so on and so forth. In this sense, all natural vector bundles are derived from $FX$ --- they are natural because $ FX $ is.
+
+If $X$ is paracompact, $FX$ can have its own tangent bundle decomposed into vertical and horizontal sub-bundles, $ TFX = T_V FX \oplus T_H FX $. While $T_V FX$ is uniquely defined as the kernel of $\pi_*$, its complement $T_H FX$ is not. Given a $\rho$-equivariant\footnote{A $\mathcal{V}$-valued form $\phi$ on $FX$ is $\rho$-equivariant if, for every $ g \in GL \left( n, \mathbb{R} \right) $, \[ {R}^{*}_{g} \left( \phi \right) = \rho \left( {g}^{-1} \right) \phi \;, \] where $ {R}^{*}_{g} $ is the pullback via the right action $ {R}_{g} $ of $ GL \left( n,\mathbb{R} \right) $ on $ FX $.} $ \mathfrak{gl} \left( n, \mathbb{R} \right) $-valued global section $\omega$ in $\Gamma\left({T}_{V}^{*} FX\right)$, which is the identity on $ \Gamma \left ( T_V FX \right) $, the choice $ \Gamma \left( T_H FX \right) = \ker \left( \omega \right)$ can be made. $\omega$ is a connection form on $FX$. This construction gives a recipe on how to differentiate $\rho$-equivariant $\mathcal{V}$-valued $k$-forms into $\rho$-equivariant $\mathcal{V}$-valued $\left(k+1\right)$-forms on $FX$. $\omega$ is itself an example of such forms. However, it is vertical\footnote{Vertical means it annihilates sections in $ \Gamma \left( T_H FX \right) $.}, which means it differentiates itself in an unusual way, resulting in
+\begin{equation}\label{eq:curvatureform}
+  \Omega\equiv d\omega+\frac{1}{2}\left[\omega,\omega\right] \;,
+\end{equation}
+where $d$ is the exterior derivative and $\left[\;,\;\right]$ is the graded Lie bracket. $\Omega$ is a $\rho$-equivariant $\mathfrak{gl}\left(n,\mathbb{R}\right)$-valued 2-form: the curvature form of $\omega$. This process of differentiation abhors verticality. $\Omega$ is horizontal\footnote{Horizontal means it annihilates sections in $ \Gamma \left( T_V FX \right) $.}, and so is the result of every differentiation via $\omega$. Thus, such procedure is better understood as an operation on the space $\Gamma\left(\Lambda_{H,\rho}^*FX\right)$ of horizontal $\rho$-equivariant $\mathcal{V}$-valued forms on $FX$. Let $\rho_*|_{\mathds{1}}: \mathfrak{gl}\left(n,\mathbb{R}\right) \rightarrow \mathfrak{gl}\left(\mathcal{V}\right)$ be pushforward map via $\rho$ at the identity element $\mathds{1}$ in $GL\left(n,\mathbb{R}\right)$. Then, $\omega$ indeed defines an endomorphism
+\begin{equation}
+  \label{eq:ext.cov.der.}
+  D=d+\rho_*|_{\mathds{1}}\left(\omega\right) \;
+\end{equation}
+on $\Gamma\left(\Lambda^*_{H,\rho} FX\right)$ that maps $\Gamma\left(\Lambda^k_{H,\rho} FX\right)$ into $\Gamma(\Lambda^{k+1}_{H,\rho} FX)$ while satisfying the graded Leibniz rule. This is an exterior covariant derivative on $FX$.
+
+The space $\Gamma\left(\Lambda^*_{H,\rho}FX\right)$ plays a pivotal role since an isomorphism exists between it and the space $\Gamma\left(A\left(\mathcal{V}\right)\otimes \Lambda^*X\right)$ of $\mathcal{V}$-valued forms on $X$. Using such map, $D$ descends from $FX$ to each $A\left(\mathcal{V}\right)$ as an operator $D_{A\left(\mathcal{V}\right)}$ that, instead, differentiates elements in $\Gamma\left(A\left(\mathcal{V}\right)\otimes \Lambda^k X \right)$ into elements in $\Gamma\left(A\left(\mathcal{V}\right)\otimes \Lambda^{k+1}X\right)$. Now, one is able to guess that $\nabla$, introduced in Section~\ref{sec:gravities}, is just $D_{TX}$ composed with the interior product $\rfloor$ in $\Gamma\left(\Lambda^*X\right)$,
+\begin{equation}
+  \label{eq:cov.diff.}
+  \nabla \equiv \;\rfloor D_{TX} \;.
+\end{equation}
+This properly sends elements from $\Gamma\left(TX\otimes TX\right)$ to $\Gamma\left(TX\right)$.
+
+$ \Omega \in \Gamma\left(\mathfrak{gl}\left( n, \mathbb{R} \right) \otimes \Lambda^2_{H,\rho}FX\right)$ descends to an element $R \in \Gamma\left(\mathfrak{gl}\left(n,\mathbb{R}\right)\otimes\Lambda^2X\right)$. $ R $ is the familiar $\mathfrak{gl}\left(n,\mathbb{R}\right)$-valued curvature 2-form on $X$ --- the geometrical structure behind $\tensor{R}{^\alpha_{\beta\mu\nu}}$. On the other hand, $\omega$ cannot descend to $X$ via the associated bundle construct since it is a vertical form. Nevertheless, one can always use a section $\sigma_{FX}: U \subseteq X \rightarrow FX$ to pull it down from $\Gamma\left(\Lambda^1_{V,\rho}FX\right)$ to $\Gamma\left(\mathfrak{gl}\left(n,\mathbb{R}\right)\otimes \Lambda^1 U\right)$,
+\begin{equation}
+  \label{eq:local_connection}
+  \Gamma \equiv {\sigma_{FX}}^* \omega \;,
+\end{equation}
+where ${\sigma_{FX}}^*$ is the pullback map. $\Gamma$ is the $\mathfrak{gl}\left(n,\mathbb{R}\right)$-valued 1-form on $U$ which we would call as a $GL\left(n,\mathbb{R}\right)$ gauge field in the traditional sense --- the geometrical structure behind the affine connection $\tensor{\Gamma}{^\alpha_{\beta\mu}}$.
+
+As one can see, gravity is described by a peculiar kind of gauge theory, in the sense that the fundamental fields capture the dynamics of the base space $X$ itself. The holonomic way accomplishes this by defining the theory directly on natural bundles. After all, these are the bundles having, by definition, functorial lifts of $lAut\left(X\right)$ --- thus, a direct connection with $X$. However, this is not the only way to do it.
+
+\subsection{Soldered bundles}\label{ssec:soldered_bundles}
+
+Consider that $X$ has such topology that, given a manifold $P$ and a Lie group $G$, the non-trivial principal $G$-bundle $\pi': P \rightarrow X$ also exists over it. Moreover, that there exists the map $h: FX \rightarrow P$ such that $\pi=\pi'\circ h$. Again, this principal bundle morphism can be neatly captured by the commutative diagram
+\begin{equation}
+  \label{dia:g-bundle_isomorphism}
+  \begin{tikzcd}
+    FX
+    \arrow[r,"h"]
+    \arrow[d,"\pi" left]
+    &
+    P
+    \arrow[d, "\pi'" ]
+    \\
+    X
+    \arrow[r, "\mathds{1}_X"]
+    &
+    X
+  \end{tikzcd} \tag{Diagram 3} \;,
+\end{equation}
+where $\mathds{1}_X$ is the identity automorphism on $X$. $h$ is called vertical since it covers $\mathds{1}_X$.
+
+It is important to note that, at each fiber $\pi^{-1}(x)$, $h$ defines a homomorphism of Lie groups $h|_{\pi^{-1}}:GL\left(n,\mathbb{R}\right)\rightarrow G$. Whenever $h|_{\pi^{-1}}$ is the actual identity automorphism on $GL\left(n,\mathbb{R}\right)$, we call $h$ equivariant. If this is the case, $P$, in~\ref{dia:g-bundle_isomorphism}, is said to be soldered to $X$. Let us assume so, and that $\omega'$ is a connection on $P$. This connection also labeled as soldered since
+\begin{equation}
+  \label{eq:soldered_connection}
+  \omega = h^* \omega' \;,
+\end{equation}
+where $h^*$ is the pullback map via $h$.
+
+It is a trivial fact that $FX$ is soldered to itself via vertical equivariant automorphisms. It corresponds to the case where $P=FX$. In such scenario, equation~\eqref{eq:soldered_connection} represents a gauge transformation on $FX$. Indeed, the set of all vertical equivariant automorphisms on $FX$, denoted as $\mathcal{G}\left(FX\right)$, is the set of all gauge transformations on $FX$~\cite{bleecker1981, rudolph2017}.
+
+Moving on, consider a representation $\rho': G\rightarrow GL\left(\mathcal{V}'\right)$ of $G$ on $\mathcal{V}'$. Exclusively on soldered $G$-bundles, there exists an element $\theta \in \Gamma \left(\Lambda^1_{H,\rho'}P\right)$ such that $\dim \left(\mathcal{V}'\right)=n$. Let $D'$ be the exterior covariant derivative associated with $\omega'$, the so-called torsion form $\Theta \in \Gamma \left(\Lambda^2_{H,\rho'}P\right)$ can be defined as
+\begin{equation}
+  \label{eq:torsion_form}
+  \Theta\equiv D'\theta \;.
+\end{equation}
+
+Via the associated vector bundle construction regarding $\rho'$, $\theta$ as well as $\Theta$ descend to $A'\left(\mathcal{V}'\right)$, respectively, as an element $e\in \Gamma \left(A'\left(\mathcal{V}'\right)\otimes \Lambda^1X\right)$, which can be regarded as a vertical vector bundle isomorphism,
+\begin{equation}
+  \label{dia:v-bundle_isomorphism}
+  \begin{tikzcd}
+    TX
+    \arrow[r,"e"]
+    \arrow[d,"\pi_{TX}" left]
+    &
+    A'\left(\mathcal{V}'\right)
+    \arrow[d, "\pi_{A'\left(\mathcal{V'}\right)}" ]
+    \\
+    X
+    \arrow[r, "\mathds{1}_X"]
+    &
+    X
+  \end{tikzcd} \;, \tag{Diagram 4}
+\end{equation}
+and an element $T\in \Gamma \left(A'\left(\mathcal{V}'\right)\otimes \Lambda^2X\right)$, given by
+\begin{equation}
+  \label{eq:torsion_2form}
+  T=D_{A'\left(\mathcal{V}'\right)}e \;.
+\end{equation}
+
+$e$ is the well-known $\mathcal{V}'$-valued soldering 1-form --- the geometrical quantity behind $\tensor{e}{^A_\mu}$. $T$ is the $\mathcal{V}'$-valued torsion 2-form on $X$ --- the geometrical quantity behind $\tensor{T}{^A_{\mu\nu}}$. These, of course, lack in the traditional (unsoldered) gauge-theoretical framework of particle physics.
+
+As a consistency check, consider, again, $P=FX$. Moreover, consider $FX$ to be trivially soldered, \textit{i.e.}, $\mathcal{G}\left(FX\right)$ contains only the trivial gauge transformation $\omega=\mathds{1}_{FX}^* \omega'$. To fulfill condition $\dim \left(\mathcal{V'}\right)=n$ for $\theta$, let $\mathcal{V}'\simeq T_x X$. In such case, $e$, of course, only corresponds to the vertical identity transformation $\mathds{1}_{TX}$ on $TX$. This tautology implies that $T$ reduces to
+\begin{align}
+  \label{}
+  T & = D_{TX}\mathds{1}_{TX} \;, \nonumber                                       \\
+    & = D_{TX}\left(\partial_\alpha\otimes dx^\alpha\right) \;, \nonumber         \\
+    & = \partial_\alpha\otimes \left(D_{TX}dx^\alpha\right) \;, \nonumber         \\
+    & = \partial_\alpha\otimes dx^\beta \wedge \tensor{\Gamma}{^\alpha_\beta} \;,
+\end{align}
+where the definition $dx^\beta \wedge \tensor{\Gamma}{^\alpha_\beta} \equiv \rho_*|_{\mathds{1}}\left(\omega\right) dx^\alpha$, in which $\wedge$ is the wedge product, was used. Then,
+\begin{align}
+  \label{eq:torsion_2form_trivial_solder}
+  T\left(\partial_\mu,\partial_\nu\right) & = \partial_\alpha \otimes dx^\beta\wedge\tensor{\Gamma}{^\alpha_\beta} \left(\partial_\mu,\partial_\nu\right) \;,\nonumber                                                          \\
+                                          & = \partial_\alpha \otimes \left(\tensor{\delta}{^\beta_\mu}\tensor{\Gamma}{^\alpha_{\beta\nu}} - \tensor{\delta}{^\beta_\nu}\tensor{\Gamma}{^\alpha_{\beta\mu}}\right) \;,\nonumber \\
+                                          & = \partial_\alpha \otimes \left(\tensor{\Gamma}{^\alpha_{\mu\nu}} - \tensor{\Gamma}{^\alpha_{\nu\mu}}\right) \;,
+\end{align}
+which is in agreement with the definition in~\eqref{eq:vanishing_torsion}. One can say that the torsion tensor collapses to the antisymmetric sector of $\Gamma_{\mu\nu}$ once $FX$ is trivially soldered to itself --- which is the case for holonomic theories of gravity.
+
+Finally, consider $ P=FM $, where $ FM $ is the frame bundle of the $ n $-dimensional Minkowski space $ M $. It is constructed over $M$ in the same way $FX$ is constructed over $X$. Thus, $G$ is forced to equal $GL\left(n,\mathbb{R}\right)$. From the perspective of $X$, elements in $FM$, in its associated vector bundles, $A'\left(\mathcal V'\right)$, and the $GL\left(n,\mathbb{R}\right)$ actions over them, are all non-holonomic in nature. We discussed this first in Section~\ref{sec:holonomic_and_non-holonomic_frames}. In the language developed here, this means that these are not natural bundles over $X$.
+
+The non-holonomic frame $\tau_A|_x$, also introduced in Section~\ref{sec:holonomic_and_non-holonomic_frames}, can be regarded as an element of $FM$ over $X$. The moving frame $\tau_A\left(x\right)$ is an element of $\Gamma\left(FM\right)$ over $X$. The non-holonomic $GL\left(n,\mathbb{R}\right)$ connection form $\omega'$ has local projection $A$ and associated curvature $F$ --- the geometrical quantities behind $\tensor{A}{^A_{B\mu}}$ and $\tensor{F}{^A_{B\mu\nu}}$, respectively. These are the gauge-theoretical fields used in the ECSK theory of gravity and its generalizations, \textit{vide}~\eqref{eq:nonholcurvature}\footnote{Although $A$ is a flat connection ($F=0$) if $FM$ is seen as a bundle over $M$, the same is not necessarily true if $FM$ is seen as a bundle over $X$.}. The vector space $V_x$ that $\tau_A|_x$ spans is a fiber of $A'\left(\mathcal{V}'\right)$ over $x$ such that $\dim\left(\mathcal{V}'\right)=n$. In fact, $V\equiv \sqcup_x V_x$ is exactly the kind of vector bundle present in~\ref{dia:v-bundle_isomorphism}. Clearly, $V_x$ is just $T_x M$, and $V$ is just $TM$.
+
+In order to clarify how $e$ solders non-holonomic frames on $X$, consider $\tau^A\in \Gamma\left(T^*M\right)$ and the map $e^*:T^*M \rightarrow T^*X$ where
+\begin{equation}
+  \label{eq:soldering_pullback}
+  \left[e^*\left(\tau^A\right)\right]\left(\partial_\mu\right) = \tau^A\left[e\left(\partial_\mu\right)\right] \;.
+\end{equation}
+Notice that $e$ maps holonomic frames into non-holonomic ones while $e^*$ glues non-holonomic co-frames on $X$. In practice, due to the contravariant nature of the pullback map, the roles of $\tensor{e}{^A_\mu}$ and $\tensor{e}{^*_\mu^A}$ get flipped. Indeed,
+\begin{align}
+  \label{eq:holonomic-to-nonholonomic-frame}
+  e \left(\partial_\mu\right) & = \tensor{e}{^A_\mu}\tau_A \;,\nonumber \\
+                              & = \tensor{e}{^*_\mu^A}\tau_A \;,
+\end{align}
+while
+\begin{align}
+  \label{eq:nonholonomic-to-holonomic-coframe}
+  e^* \left(\tau^A\right) & = \tensor{e}{^*_\mu^A}dx^\mu \;,\nonumber \\
+                          & = \tensor{e}{^A_\mu}dx^\mu \;.
+\end{align}
+where, as already mentioned, the vielbein field $\tensor{e}{^A_\mu}\equiv \tau^A\left[e\left(\partial_\mu\right)\right]$ is the matrix representation of $e$ in the basis $\tau_A\otimes dx^\mu$. And, $\tensor{e}{^*_\mu^A}\equiv\left[e^*\left(\tau^A\right)\right]\left(\partial_\mu\right)$ is the matrix representation of $e^*$ in $dx^\mu\otimes\tau_A$.
+
+Equation~\eqref{eq:soldering_pullback}, stating that $\tensor{e}{^*_\mu^A}=\tensor{e}{^A_\mu}$, was used in both~\eqref{eq:holonomic-to-nonholonomic-frame} and~\eqref{eq:nonholonomic-to-holonomic-coframe}. In the literature, $e^*\left(\tau^A\right)$ is presented as the 1-form vielbein $e^A$ while $e\left(\partial_\mu\right)$ is mostly ignored. The former is the \textquote{subtle} relation between $e^A$ and $\tau^A$ mentioned in the end of Section~\ref{sec:holonomic_and_non-holonomic_frames}. Additionally, as long as $e$ is an isomorphism, inverses exist for it and its pullback. Explicitly, $\tensor{e}{^\mu_A}\equiv dx^\mu\left[e^{-1}\left(\tau_A\right)\right]$ and $\tensor{e}{^*_A^\mu}\equiv \left[e^{*-1}\left(dx^\mu\right)\right]\left(\tau_A\right)$. Moreover,
+\begin{align}
+  \label{eq:nonholonomic-to-holonomic-frame}
+  e^{-1} \left(\tau_A\right) & = \tensor{e}{^\mu_A}\partial_\mu \;,\nonumber \\
+                             & = \tensor{e}{^*_A^\mu}\partial_\mu \;,
+\end{align}
+while
+\begin{align}
+  \label{eq:holonomic-to-nonholonomic-coframe}
+  e^{*-1} \left(dx^\mu\right) & = \tensor{e}{^*_A^\mu}\tau^A \;,\nonumber \\
+                              & = \tensor{e}{^\mu_A}\tau^A \;.
+\end{align}
+The analog of equation~\eqref{eq:soldering_pullback} for $e^{-1}$ states that $\tensor{e}{^*_A^\mu}=\tensor{e}{^\mu_A}$ and was used in both~\eqref{eq:nonholonomic-to-holonomic-frame} and~\eqref{eq:holonomic-to-nonholonomic-coframe}. It is easy to show that compositions $e^{*-1}\circ e^*$ and $e^{-1}\circ e$ are behind equations~\eqref{eq:inversepullbackvielbein} and~\eqref{eq:inversevielbein}, respectively. In literature, however, it is commonplace to define $e^{-1}\left(\tau_A\right)$ as the 1-vector $e_A$ such that $e^A \left(e_B\right)=\tensor{\delta}{^A_B}$. This latter equation does not hold by itself, but it is a consequence of~\eqref{eq:inversepullbackvielbein} being true.
+
+\subsection{The geometric equivalence principle}\label{ssec:the_equivalence_principle}
+
+The last geometrical structure we need to address is that of a metric. In the beginning of this section, we commented on how a metric tensor on $X$ is an element of $\Gamma (\text{\raisebox{\depth}{\scalebox{1}[-1]{$\Lambda$}}}^2 X)$. Such a metric lives on a natural bundle and thus is holonomic in nature. Analogous definition can be made on using any other vector bundle over $X$. For instance, a non-holonomic metric $g'$ on $X$ can be defined as an element living in $\Gamma (\text{\raisebox{\depth}{\scalebox{1}[-1]{$\Lambda$}}}^2A'\left(\mathcal{V}'\right))$.
+
+We also made comments on how there might be topological obstructions for a local section to be smoothly glued together to form a global one. On certain topologies, $\chi\left(X\right)$ plays that role. Luckily, if $X$ is paracompact, partition of unity can be used to always extend a local Riemannian metric into a global one on whatever vector bundle above $X$. Thus, global Riemannian metrics always exist at our disposal. The downside is that they are all geodesically complete. Incapable to provide good classical models for cosmology and/or black hole physics. Unluckily, obstructions to extend a local Lorentzian metric into a global one are much more common. Paracompactness is enough for non-compact topologies. But on compact ones, it needs to be supplemented with the condition $\chi\left(X\right)=0$. Famously, even-spheres do not accept a Lorentzian structure.
+
+The existence of metric structures on $X$ has interesting consequences for $FX$ and $P$. Via the Gram-Schmidt process, $g$ and $g'$ allow us to define in each $F_x X$ and $P_x$, respectively, subsets $F^\mathcal{O}_x X \subset F_x X$ and $P^\mathcal{O}_x \subset P_x$ of orthogonal frames. The disjoint union in all $x$ defines $F^\mathcal{O}X$ and $P^\mathcal{O}$. One can show that these do have the structure of embedded principal sub-bundles within $FX$ and $P$, respectively, with structure group $O\left(p,q \right) \; ; \; p+q=n$, if the metrics $g$ and $g'$ have signature $\left(p,q\right)$. If Riemannian ($p=0$), then the structure subgroup is $O\left(n\right)$. If Lorentzian ($p=1$), then $O\left(1,n-1\right)$. On orientable topologies, $GL\left(n,\mathbb{R}\right)$ can first be reduced to the orientation-preserving $GL^+\left(n,\mathbb{R}\right)$ (positive determinant), yielding $SO\left(p,q\right)$.
+
+The proof of existence on paracompact $X$ rely on the quotient bundles $FX/O\left(p,q\right)$ and $P/O\left(p,q\right)$ admitting global sections, \textit{i.e.}, being trivial. This is true whenever the coset space $GL\left(n,\mathbb{R}\right)/O\left(p,q\right)$ is contractible. If $p=0$, this space is homotopic to $\mathbb{R}^n$. If $p=1$, it is homotopic to $\mathbb{R}P^{n-1}$ --- the $\left(n-1\right)$-dimensional real projective space. The former is clearly contractible, the latter is not. $\pi_1 \left(\mathbb{R}P^{n-1}\right) \simeq \mathbb{Z}_2$ and $\pi_k\left(\mathbb{R}P^{n-1}\right) \simeq \pi_k\left(S^{n-1}\right)$ for $k>1$. This is the bundle-theoretical reason why Riemannian structures always exist while Lorentzian ones do not.
+
+Regardless of signature, whenever a metric structure exists, the embeddings $F^\mathcal{O}X \rightarrow FX$ and $P^\mathcal{O}\rightarrow P$ also do. Ultimately, this is the justification, omitted from Section~\ref{sec:holonomic_and_non-holonomic_frames}, that allowed us to extend the transformation group of non-holonomic frames from $SO\left(1,n-1\right)$ to $GL\left(n,\mathbb{R}\right)$: we assumed the existence of $\eta$. From a physical standpoint, the converse interpretation is promising. One can argue that whenever the quantum structure of spacetime changes to that of a smooth manifold $X$ with appropriated topology, then a corresponding symmetry breaking $GL\left(n,\mathbb{R}\right) \rightarrow O\left(p,q\right)$ occurs in $FX$ and $P$. This gives a comprehensive scenario in which metric structures arise dynamically, as Higgs-Goldstone type of fields~\cite{sardanashvily1983,nikolova1984,sardanashvily2016}. Theories of induced gravity employing similar mechanism have been extensively explored in~\cite{macdowell1977a,stelle1979,gotzes1989,neeman1987,kirsch2005,leclerc2006,tresguerres2008,randono2010,sobreiro2011,mielke2011a,sobreiro2017,sadovski2015,sadovski2015}.
+
+It should be apparent that to have a bundle of orthogonal frames by no means equates to have an everywhere flat Minkowski structure $\eta$. And, to realize the equivalence principle, we do need plug $FM$ onto $X$. $FM$ is first conceived over the Minkowski space $M$. The latter is paracompact and non-compact, thus a global Lorentzian metric $g'$ definitely exists on it. Further, $M$ is homotopic to $\mathbb{R}^n$ and thus contractible. This means that any bundle over it is trivial. Consequentially, $\omega'$ can be chosen as the canonical flat connection. By postulating that this connection is torsionless and metrical, we arrive at the Riemannian hypothesis that states that $\omega'$ is derived from the metric $g'=\eta$.
+
+The existence of $\eta$ guarantees the existence of the global Lorentz frame $\tau_a$. This is realized via the embedding $F^\mathcal{O} M \rightarrow FM$, in which $SO(1,n-1)$ is structure subgroup. In $\tau_a$, $\eta$ assumes its well-known diagonal form $\eta\left(\tau_a,\tau_b\right)=\eta_{ab}\equiv \mathrm{diag}\left(-1, +1, \ldots, +1\right)$. By plugging $FM$ onto $X$ via the projection $\pi'$, we essentially localize on $X$ the global Minkowskian structures just mentioned. In summary, the equivalence principle is geometrically encoded in the following diagrams:
+\begin{equation}
+  \label{dia:p-bundle_ep}
+  \begin{tikzcd}
+    GL\left(n,\mathbb{R}\right)
+    \arrow[r,hook]
+    &
+    FX
+    \arrow[r,"h"]
+    \arrow[d, "\pi" left]
+    &
+    FM
+    \arrow[r,"q"]
+    \arrow[d, "\pi'"]
+    &
+    F^\mathcal{O}M
+    \arrow[d, "\pi''"]
+    &
+    \arrow[l,hook']
+    SO(1,n-1)
+    \\
+    &
+    X
+    \arrow[r,"{\mathds{1}_X}"]
+    &
+    X
+    \arrow[r,"{\mathds{1}_X}"]
+    &
+    X
+    &
+  \end{tikzcd} \tag{Diagram 5}
+\end{equation}
+or, equivalently, in terms of vector bundles,
+\begin{equation}
+  \label{dia:v-bundle_ep}
+  \begin{tikzcd}
+    GL\left(n,\mathbb{R}\right)
+    \arrow[r,hook]
+    &
+    TX
+    \arrow[r,"e"]
+    \arrow[d, "\pi_{TX}" left]
+    &
+    TM
+    \arrow[r,"q'"]
+    \arrow[d, "\pi_{TM}"]
+    &
+    T^\mathcal{O}M
+    \arrow[d, "\pi_{T^\mathcal{O}M}"]
+    &
+    \arrow[l,hook']
+    SO(1,n-1)
+    \\
+    &
+    X
+    \arrow[r,"{\mathds{1}_X}"]
+    &
+    X
+    \arrow[r,"{\mathds{1}_X}"]
+    &
+    X
+    &
+  \end{tikzcd} \tag{Diagram 6}\;,
+\end{equation}
+where $q$ and $q'$ are bundle contractions. Clearly, it is the existence of the bundle isomorphism $h$ --- or, equivalently, $e$ --- that allow us to formulate gravity on other bundles beyond natural ones. In Section~\ref{sec:on-shell_equivalence}, we proved that these different constructions are dynamically equivalent, in the classical realm, if the diagrams above hold true.
+
+We are ready to state equations~\eqref{eq:field-transformation} in a geometrical fashion. They correspond to the pullback along $e$ of the non-holonomic metric $\eta$ and connection $A$ to the holonomic metric $g$ and connection $\Gamma$, respectively,
+\begin{subequations}\label{eq:e-pullback}
+  \begin{align}
+    g      & = e^* \eta \;, \label{eq:e-pullback-of-nonholonomic-metric}  \\
+    \Gamma & = e^* A \;, \label{eq:e-pullback-of-nonholonomic-connection}
+  \end{align}
+\end{subequations}
+much in the spirit first presented in~\cite{giachetti1980}. Clearly, equations in~\eqref{eq:e-pullback} are a reincarnation of equation~\eqref{eq:soldered_connection}, but on an associated vector bundles, and including the metric field. Nevertheless, we again stress that, $e$ is not an isomorphism from $TX$ to itself, but an isomorphism from $TX$ to $TM$. Otherwise, $e$ would be the functorial lift of $lAut\left(X\right)$, according to~\ref{dia:categorical_lift}, and its matrix representation would be $\tensor{J}{^{\nu'}_\mu}(x)$. This is an important conceptual distinction that, in practice, only amount for a substitution from $\tensor{J}{^{\nu'}_\mu}(x)$ to $\tensor{e}{^A_\mu}(x)$ in the transformation law for tensor and connection fields. Since equations of motion should be covariant under the latter, it is also covariant under the former. This is what geometrically underpins our analytical result of Section~\ref{sec:on-shell_equivalence}.
+
+Let $ U $ be a region such that
+\begin{equation}\label{eq:degenerate}
+  \det\left[\tensor{e}{^A_\mu}(x)\right]=0 \; \forall \; x \in U \;.
+\end{equation}
+Over such degenerate region, $ e $ is not an isomorphism. Thus, $TM$ cannot be realized as a bundle soldered to $TX$, as defined above. Physically, in $U$ the equivalence principle fails to hold.
+
+\end{document}
+

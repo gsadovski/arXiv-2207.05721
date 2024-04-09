@@ -1,0 +1,116 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{The general (in)equivalence}\label{sec:on-shell_equivalence}
+
+In order to address the extension of~\ref{dia:equivalence} to the most general metric-affine case, it is convenient to abstract the situation to that of a field theory for the multi-field $\Phi^I$, which single-handedly represents an arbitrary (but finite) number of scalar, vector, 2-tensor, 3-tensor, \dots, $q$-tensor fields\footnote{Here upper-case Latin letters do not simply ranger from $0$ to $n-1$, as it labels the fields within the $\Phi$ multiplet.}
+\begin{equation}
+  \Phi^I \in \left\{\phi^1,\ldots,\phi^{q_0},\phi_\mu^1, \ldots,\phi^{q_1}_\mu,\phi^1_{\mu\nu},\ldots, \phi^{q_2}_{\mu\nu}, \ldots, \phi^1_{\mu_1\cdots \mu_q},\ldots,\phi^{q_q}_{\mu_1\cdots \mu_q} \right\} \;.
+\end{equation}
+Its dynamics is encoded in the very general action functional containing up to the $k$-th order derivative of $\Phi^I$,
+\begin{equation}
+  S\left[\Phi^I\right] = \int d^n x \mathcal{L} \left(\Phi^I, \partial_\mu \Phi^I , \ldots  ,\partial_{\mu_1}\cdots\partial_{\mu_k} \Phi^I  \right)\;.
+\end{equation}
+Hamilton's principle states that classical configurations of $\Phi^I$ are \textit{extrema} of such functional. Thus, solutions to the partial differential equation
+\begin{equation}
+  \label{eq:el-equations}
+  \delta^{(k)}_{\Phi^I}\mathcal{L}=0 \;,
+\end{equation}
+known as Euler-Lagrange equation. The notation employed for the Lagrange operator reads
+\begin{equation}
+  \delta^{(k)}_{\Phi^I} \equiv \sum_{j=0}^{k} \sum_{\mu_1 \leq \cdots \leq \mu_j} {\left( -1 \right)}^j \partial_{\mu_1} \ldots \partial_{\mu_j} \left[ \frac{ \partial \phantom{ \left( \partial_{\mu_1} \ldots \partial_{\mu_j} \Phi^I \right) } }{ \partial \left( \partial_{\mu_1} \ldots \partial_{\mu_j} \Phi^I \right) } \right] \;,
+\end{equation}
+where the second sum is over the ordered set $\left\{ \left( \mu_1,\ldots,\mu_j \right) \; ; \; \mu_1 \leq \cdots \leq \mu_j \right\}$. Whenever this set is empty, which is the case for $j=0$, the operator $\partial_{\mu_1} \ldots \partial_{\mu_j}$ is the identity --- we end up with just a $\partial/\partial \Phi^I$ contribution.
+
+It is a common exercise in field theory to consider the field transformations
+\begin{equation}
+  \label{eq:standard-field-transf}
+  \Phi'^{J}=\Phi'^{J} \left(\Phi^I\right) \;,
+\end{equation}
+whose Jacobian matrix
+\begin{equation}
+  \tensor{J}{^{J}_I} \equiv \frac{\partial \Phi'^{J}}{\partial \Phi^I}
+\end{equation}
+is square and non-singular. As a result, Euler-Lagrange field equations~\eqref{eq:el-equations} transform covariantly,
+\begin{equation}
+  \label{eq:el-equations-covariant-transf}
+  \tensor{J}{^J_I}\delta^{(k)}_{\Phi'^{J}}\mathcal{L}'\left(\Phi'^{J}, \partial_\mu \Phi'^{J}, \ldots , \partial_{\mu_1\cdots\mu_k} \Phi'^{J}\right) = 0 \;.
+\end{equation}
+Since $J^{-1}$ exists, it can be used in~\eqref{eq:el-equations-covariant-transf} to yield
+\begin{equation}
+  \label{eq:el-equation-prime}
+  \delta^{(k)}_{\Phi'^{J}}\mathcal{L}'=0 \;.
+\end{equation}
+This establishes the on-shell equivalence between $\Phi^I$ and $\Phi'^{J}$ theories\footnote{This latter step is what fails in degenerate spacetime regions.}.
+
+On the other hand, it is less standard to consider field transformations of the form
+\begin{equation}
+  \label{eq:non-standard-field-transf}
+  \Phi'^{J} = \Phi'^{J} \left(\Phi^I, \partial_\mu \Phi^I\right) \;.
+\end{equation}
+Its non-vanishing dependence on first order derivatives w.r.t.\ the fields
+\begin{equation}
+  \label{eq:Q}
+  \tensor{K}{^J_I^\mu}\equiv \frac{\partial \Phi'^{J}}{\partial \left(\partial_\mu \Phi^I\right)} \;
+\end{equation}
+results in the Jacobian matrix
+\begin{equation}
+  \label{eq:non-standard-jacobian}
+  \mathbb{J}^\mu = \begin{bmatrix}
+    \tensor{J}{^{J}_I}\tensor{\delta}{_0^\mu} \\
+    \tensor{K}{^J_I^\mu}
+  \end{bmatrix}
+  \;
+\end{equation}
+having twice as many rows than columns. This is a telltale sign of singular, non-invertible transformations. More precisely, if one were to invert~\eqref{eq:non-standard-field-transf}, one would quickly realize that the system of equations that needs to be solved is undetermined, having infinitely many solutions. Thus, this is precisely the abstraction of the gravitational case presented in the end of Section~\ref{sec:gravities}, equation~\eqref{eq:field-transformation}. It is a tediously long, but straightforward, calculation to show that, under~\eqref{eq:non-standard-field-transf}, Euler-Lagrange field equations~\eqref{eq:el-equations} transform according to
+\begin{equation}
+  \label{eq:non-standard-field-eq-transf}
+  \tensor{J}{^{J}_I}\delta^{(k)}_{\Phi'^{J}}\mathcal{L}'=\partial_\mu \left[\tensor{K}{^{J}_I^\mu}\delta^{(k)}_{\Phi'^{J}}\mathcal{L}'\right] \;.
+\end{equation}
+To the author knowledge, equation~\eqref{eq:non-standard-field-eq-transf} is not present in the literature and clearly a non-covariant behavior. At this point, $\Phi^I$ and $\Phi'^{J}$ theories have no chance to be equivalent, even if $J^{-1}$ were at our disposal.
+
+In order to regain some sense of covariance, the right-hand side of~\eqref{eq:non-standard-field-eq-transf} has to vanish --- $\tensor{K}{^{J}_I^\mu}\delta^{\left(k\right)}_{\Phi'^{J}}\mathcal{L}'$ has to be divergence-free. This is trivially achieved in the case of $\tensor{K}{^{J}_I^\mu}=0$, which corresponds to the canonical field transformations~\eqref{eq:standard-field-transf}. The gravitational case, on the other hand, has a non-vanishing $\tensor{K}{^1_2^\mu}$. At first, this raises the suspicion that $\Phi^I$ gravity theories cannot possibly be equivalent to $\Phi'^J$ ones.
+
+Let us take $\Phi^I \in \left\{\tensor{e}{^A_\mu}, \tensor{A}{^A_{B\mu}}\right\}$, ${\Phi'}^J \in \left\{g_{\mu\nu}, \tensor{\Gamma}{^\alpha_{\beta\mu}} \right\}$ and the field transformations of the kind~\eqref{eq:non-standard-field-transf} to be~\eqref{eq:field-transformation}. This yields the Jacobian matrices
+\begin{equation}
+  \label{eq:j-jacobian-for-gravity}
+  \tensor{J}{^{J}_I} = \begin{bmatrix}
+    \frac{\partial g_{\mu\nu}}{\partial \tensor{e}{^A_\gamma}} & \frac{\partial \tensor{\Gamma}{^\alpha_{\beta\mu}}}{\partial \tensor{e}{^A_\gamma}}    \\
+    0                                                          & \frac{\partial \tensor{\Gamma}{^\alpha_{\beta\mu}}}{\partial \tensor{A}{^A_{B\gamma}}}
+  \end{bmatrix} \;,
+\end{equation}
+and
+\begin{equation}
+  \label{eq:k-jacobian-for-gravity}
+  \tensor{K}{^J_I^\lambda} = \begin{bmatrix}
+    0 & \frac{\partial \tensor{\Gamma}{^\alpha_{\beta\mu}}}{\partial \left(\partial_\lambda\tensor{e}{^A_\gamma}\right)} \\
+    0 & 0
+  \end{bmatrix} \;.
+\end{equation}
+Thus, the transformed Euler-Lagrange field equations~\eqref{eq:non-standard-field-eq-transf} reduce to
+\begin{subequations}\label{eq:non-standard-field-eq-transf-for-gravity}
+  \begin{align}
+    \left(\frac{\partial g_{\mu\nu}}{\partial \tensor{e}{^A_\gamma}} \delta^{(k)}_{g_{\mu\nu}} + \frac{\partial \tensor{\Gamma}{^\alpha_{\beta\mu}}}{\partial \tensor{e}{^A_\gamma}} \delta^{(k)}_{\tensor{\Gamma}{^\alpha_{\beta\mu}}}\right) \mathcal{L}' & = \partial_\lambda \left(\frac{\partial \tensor{\Gamma}{^\alpha_{\beta\mu}}}{\partial \left(\partial_\lambda \tensor{e}{^A_\gamma}\right)} \delta^{(k)}_{\tensor{\Gamma}{^\alpha_{\beta\mu}}}\mathcal{L}' \right) \;, \label{eq:transformed-einstein-like-field-eq} \\
+    \frac{\partial \tensor{\Gamma}{^\alpha_{\beta\mu}}}{\partial \tensor{A}{^A_{B\gamma}}} \delta^{(k)}_{\tensor{\Gamma}{^\alpha_{\beta\mu}}} \mathcal{L}'                                                                                                  & = 0 \;. \label{eq:transformed-cartan-like-field}
+  \end{align}
+\end{subequations}
+Individually, the transformed Cartan-like field equation~\eqref{eq:transformed-cartan-like-field} does behave covariantly due to the vanishing of $\tensor{J}{^2_1}$, $\tensor{K}{^2_1^\lambda}$ and $\tensor{K}{^2_2^\lambda}$. The transformed Einstein-like field equation~\eqref{eq:transformed-einstein-like-field-eq} does not. Collectively, \eqref{eq:transformed-cartan-like-field}~and~\eqref{eq:transformed-einstein-like-field-eq} do form a system. And, a solution for~\eqref{eq:transformed-cartan-like-field} has to be a solution for~\eqref{eq:transformed-einstein-like-field-eq}. From~\eqref{eq:transformed-cartan-like-field}, it is clear that $\delta^{(k)}_{\tensor{\Gamma}{^\alpha_{\beta\mu}}}\mathcal{L}'=0$ if $\partial \tensor{\Gamma}{^\alpha_{\beta\mu}} / \partial \tensor{A}{^A_{B\gamma}}$ is an invertible matrix. If so, $\delta^{(k)}_{\tensor{\Gamma}{^\alpha_{\beta\mu}}}\mathcal{L}'$ also vanishes in~\eqref{eq:transformed-einstein-like-field-eq}, thereby killing all undesirable terms. Thus,~\ref{dia:equivalence} can be extended to very general metric-affine dynamics.
+
+In conclusion, if we consider
+\begin{subequations}
+  \begin{align}
+    \delta^{(k)}_{\tensor{e}{^A_\gamma}}\mathcal{L}     & = 0 \;, \\
+    \delta^{(k)}_{\tensor{A}{^A_{B_\gamma}}}\mathcal{L} & = 0 \;,
+  \end{align}
+\end{subequations}
+for whichever chosen $\mathcal{L}$, and apply field transformations~\eqref{eq:field-transformation}, we end up with
+\begin{subequations}\label{eq:non-standard-field-eq-transf-for-gravity-simplified}
+  \begin{align}
+    \delta^{(k)}_{g_{\mu\nu}} \mathcal{L}'                          & = 0 \;, \\
+    \delta^{(k)}_{\tensor{\Gamma}{^\alpha_{\beta\mu}}} \mathcal{L}' & = 0 \;,
+  \end{align}
+\end{subequations}
+as long as $\partial \tensor{\Gamma}{^\alpha_{\beta\mu}} / \partial \tensor{A}{^A_{B\gamma}}$ and $ \partial g_{ \mu \nu } / \partial \tensor{e}{^A_{\gamma}} $ (both related to $\tensor{e}{^B_\mu}$) are non-singular. Thus, gravity theories, formulated in holonomic \textit{versus} non-holonomic frames, are on-shell equivalent in a way that is independent of the particular metric-affine dynamics and/or spacetime dimension. This result is largely true due to the functional form of field transformations~\eqref{eq:field-transformation} and the invertible \textit{vielbein} condition.
+
+\end{document}
