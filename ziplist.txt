@@ -1,0 +1,11 @@
+./metadata/manuscript.sty
+./metadata/titlepage.tex
+./main.tex
+./main.bbl
+./content/sections/introduction.tex
+./content/sections/inequivalence.tex
+./content/sections/frames.tex
+./content/sections/bundles.tex
+./content/sections/acknowledgments.tex
+./content/sections/conclusion.tex
+./content/sections/gravities.tex
